@@ -66,10 +66,13 @@ for duration in durations:
         axis.set_title(f'Requests {interval-5}-{interval}')
     request_times = durations[duration][8:, 25:]
     ax5.hist(request_times.flatten(), bins=50)
-    axis.set_ylim(0, 50)
-    axis.set_ylabel("Number of requests")
-    axis.set_xlabel("Round Trip Time (in seconds)")
-    axis.set_title(f'Requests 25-60')
+    ax5.set_ylabel("Number of requests")
+    ax5.set_xlabel("Round Trip Time (in seconds)")
+    ax5.set_title(f'Requests 25-60')
+    
+    fig.suptitle(f'Requests duration with {duration}min of interval')
+    plt.tight_layout()
+    plt.savefig(f'Requests_for_{duration}.jpg')
     plt.show()
     plt.close()
         
